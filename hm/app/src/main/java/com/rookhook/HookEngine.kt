@@ -67,7 +67,7 @@ object HookEngine {
         }
         val hook = buildHook(rule)
         for (method in methods) {
-            XposedHelpers.hookMethod(method, hook)
+            de.robv.android.xposed.XposedBridge.hookMethod(method, hook)
             Log.i(TAG, "Hooked overload: ${rule.methodName}(${method.parameterTypes.joinToString { it.simpleName }})")
         }
     }
